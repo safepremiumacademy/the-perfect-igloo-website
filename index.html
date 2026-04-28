@@ -273,7 +273,47 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
 /* RESPONSIVE */
 @media(max-width:1024px){.gm{columns:3}#about .aw,.pg{grid-template-columns:1fr}.lg{grid-template-columns:1fr}.lg .vc:first-child{grid-column:span 1}}
 @media(max-width:900px){section{padding:4.5rem 1.5rem}.nav-links{display:none!important}.hamburger{display:flex}nav.mob .nav-links{display:flex!important;flex-direction:column;position:fixed;inset:0;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);align-items:center;justify-content:center;gap:2rem;z-index:100}nav.mob .nav-links a{font-size:1.1rem}.gm{columns:2}.vg{grid-template-columns:1fr}.sr{grid-template-columns:75px 1fr;gap:1rem}.sr .stag{grid-column:2}.ag{grid-template-columns:1fr}.mc{flex:0 0 160px}.mc .mi{width:160px;height:230px}.float-photo img{width:120px}}
-@media(max-width:480px){.gm{columns:2;column-gap:.4rem}.gi{margin-bottom:.4rem}#hero h1{font-size:3.5rem}.mc{flex:0 0 140px}.mc .mi{width:140px;height:200px}.float-photo img{width:90px}.collage-img{height:100px}}
+@media(max-width:480px){
+  .gm{columns:2;column-gap:.4rem}
+  .gi{margin-bottom:.4rem}
+  #hero h1{font-size:3.5rem}
+  .hero-content{padding:7rem 1.5rem 6vh 1.5rem}
+  .hero-sub{font-size:1rem}
+  .hero-ctas{gap:.7rem}
+  .hero-ctas .btn{font-size:.85rem;padding:.7rem 1.2rem}
+  .mc{flex:0 0 140px}
+  .mc .mi{width:140px;height:200px}
+  .collage-img{height:100px}
+  /* Floating photo zones: switch from absolute to flex flow on phones */
+  .fp-zone{height:auto!important;min-height:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;padding:1rem .5rem}
+  .fp-img{position:static!important;width:auto!important;height:auto!important;left:auto!important;right:auto!important;top:auto!important;flex:0 0 auto}
+  .fp-img img{width:140px!important;height:105px!important;object-fit:cover}
+  /* Audio player - tighter on phones */
+  .ap-header{padding:1.1rem 1.2rem;gap:.8rem}
+  .ap-now{font-size:1.3rem}
+  .ap-controls{padding:1rem 1.2rem;gap:.6rem}
+  .ap-btn{width:44px;height:44px}
+  .ap-prev,.ap-next,.ap-expand{width:32px;height:32px}
+  .ap-track{padding:.8rem 1.2rem;gap:.7rem}
+  .ap-title{font-size:.9rem}
+  .ap-soon{font-size:.65rem;padding:.2rem .5rem}
+  /* Press & merch sections - allow stacking */
+  #press > div > div:first-child,
+  #merch > div > div:first-child{flex:1 1 100%!important;max-width:100%!important}
+  /* Gallery credits - tighter spacing */
+  .gc{font-size:.85rem!important;padding:0 .3rem}
+  /* Marquee - smaller on phones */
+  .marquee span{font-size:1.2rem;padding:0 1.2rem}
+}
+@media(max-width:360px){
+  #hero h1{font-size:3rem}
+  .hero-content{padding:6.5rem 1.2rem 5vh 1.2rem}
+  section{padding:3.5rem 1.2rem!important}
+  .fp-img img{width:120px!important;height:90px!important}
+  .ap-header{padding:1rem}
+  .ap-controls{padding:.8rem 1rem}
+  .ap-track{padding:.7rem 1rem}
+}
 </style>
 </head>
 <body>
