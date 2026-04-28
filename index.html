@@ -126,9 +126,33 @@ section{padding:7rem 5vw 7rem 8vw}
 .ap-track.active{background:rgba(232,65,46,.08);border-left:3px solid var(--red)}
 .ap-num{font-size:.8rem;opacity:.3;min-width:24px;text-align:center}
 .ap-track.active .ap-num{color:var(--red);opacity:1}
+.ap-track.soon{cursor:default;opacity:.4}
+.ap-track.soon:hover{background:transparent}
+.ap-soon{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.6;padding:.25rem .6rem;border:1px solid rgba(255,255,255,.15);border-radius:20px}
 .ap-info{flex:1}
 .ap-title{font-weight:500;font-size:.95rem}
 .ap-dur{font-size:.8rem;opacity:.3}
+.ap-expand,.ap-collapse{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:.3s;flex-shrink:0}
+.ap-expand:hover,.ap-collapse:hover{background:rgba(255,255,255,.15)}
+.ap-collapse{display:none}
+/* Expanded fullscreen mode */
+.audio-player.expanded{position:fixed;inset:0;z-index:200;max-width:none;margin:0;border-radius:0;background:rgba(8,8,12,.97);backdrop-filter:blur(20px);display:flex;flex-direction:column;border:none}
+.audio-player.expanded .ap-expand{display:none}
+.audio-player.expanded .ap-collapse{display:flex}
+.audio-player.expanded .ap-header{padding:2.5rem 4rem;gap:2rem}
+.audio-player.expanded .ap-now{font-size:3rem;line-height:1.05}
+.audio-player.expanded .ap-controls{padding:1.5rem 4rem}
+.audio-player.expanded .ap-btn{width:64px;height:64px}
+.audio-player.expanded .ap-btn svg{width:26px;height:26px}
+.audio-player.expanded .ap-list{flex:1;max-height:none}
+.audio-player.expanded .ap-track{padding:1.1rem 4rem}
+.audio-player.expanded .ap-title{font-size:1.1rem}
+@media(max-width:700px){
+  .audio-player.expanded .ap-header{padding:1.5rem 1.5rem;gap:1rem}
+  .audio-player.expanded .ap-now{font-size:1.8rem}
+  .audio-player.expanded .ap-controls{padding:1rem 1.5rem}
+  .audio-player.expanded .ap-track{padding:.9rem 1.5rem}
+}
 
 /* MEMBERS */
 #members{overflow:hidden}
@@ -448,10 +472,12 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
   <p class="sx rv" data-sk="Vypočuj si naše skladby priamo tu, alebo nás nájdi na Spotify a ďalších platformách." data-en="Listen to our songs right here, or find us on Spotify and other platforms.">Vypočuj si naše skladby priamo tu, alebo nás nájdi na Spotify a ďalších platformách.</p>
   <div class="audio-player">
     <div class="ap-header">
-      <div>
+      <div style="flex:1">
         <div style="font-size:.7rem;opacity:.4;text-transform:uppercase;letter-spacing:.15em" data-sk="Teraz hrá" data-en="Now Playing">Teraz hrá</div>
         <div class="ap-now" id="ap-now">—</div>
       </div>
+      <button class="ap-expand" onclick="apExpand()" title="Zväčšiť"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 3h7v2H5v5H3zm11 0h7v7h-2V5h-5zm0 18v-2h5v-5h2v7zm-11 0v-7h2v5h5v2z" fill="currentColor"/></svg></button>
+      <button class="ap-collapse" onclick="apCollapse()" title="Zmenšiť"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 5h2v3h3v2H5zm9 0h2v5h3v-2h-5zm5 14h-2v-3h-3v-2h5zm-14 0v-5h5v2H7v3z" fill="currentColor"/></svg></button>
     </div>
     <div class="ap-controls">
       <button class="ap-prev" onclick="apPrev()" title="Predchádzajúca"><svg viewBox="0 0 24 24"><polygon points="19,20 9,12 19,4"/><rect x="5" y="4" width="2" height="16"/></svg></button>
@@ -464,11 +490,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
       </div>
     </div>
     <div class="ap-list" id="ap-list">
-      <!-- Tracks will be populated by JS from the playlist array -->
-      <div style="padding:2rem;text-align:center;opacity:.3">
-        <p data-sk="🎵 Skladby sa pripravujú. Čoskoro tu nájdeš naše pesničky." data-en="🎵 Songs coming soon. Stay tuned.">🎵 Skladby sa pripravujú. Čoskoro tu nájdeš naše pesničky.</p>
-        <p style="margin-top:.5rem;font-size:.85rem"><a href="https://open.spotify.com/artist/2zazhgD9V4NAa87YnTBgIo" target="_blank" style="color:var(--red)">Zatiaľ nás počúvaj na Spotify →</a></p>
-      </div>
+      <!-- Tracks populated by JS from the playlist array -->
     </div>
   </div>
 </section>
@@ -480,7 +502,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
   <div class="gc rv" style="max-width:780px;margin:1.5rem auto 2.5rem;text-align:center;font-size:.95rem;line-height:1.7;opacity:.65">
     <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.15em;color:var(--red);margin-bottom:.8rem;opacity:.9" data-sk="Vďaka fotografom" data-en="Thanks to our photographers">VĎAKA FOTOGRAFOM</div>
     <p data-sk="Veľká vďaka všetkým, ktorí nám zachytávajú momenty na pódiu i mimo neho:" data-en="Huge thanks to everyone capturing our moments on and off stage:">Veľká vďaka všetkým, ktorí nám zachytávajú momenty na pódiu i mimo neho:</p>
-    <p style="margin-top:.6rem">Radek Mašek <span style="opacity:.55" data-sk="(rôzne)" data-en="(various)">(rôzne)</span> · <a href="https://www.facebook.com/profile.php?id=100063574472786" target="_blank" rel="noopener" style="color:var(--red);text-decoration:none;border-bottom:1px solid rgba(232,65,46,.4)">Zuzana Leitmanová</a> <span style="opacity:.55" data-sk="(rôzne)" data-en="(various)">(rôzne)</span> · <a href="https://www.facebook.com/lukasruferfoto" target="_blank" rel="noopener" style="color:var(--red);text-decoration:none;border-bottom:1px solid rgba(232,65,46,.4)">Lukáš Rufer</a> <span style="opacity:.55">(Orlická Brána 2025)</span> · <a href="https://www.facebook.com/juraj.bednarik1" target="_blank" rel="noopener" style="color:var(--red);text-decoration:none;border-bottom:1px solid rgba(232,65,46,.4)">Juraj Bednárik</a> <span style="opacity:.55">(Orava Alternative 2025)</span><span data-sk=" a ďalší." data-en=" and others."> a ďalší.</span></p>
+    <p style="margin-top:.6rem">Radek Mašek <span style="opacity:.55" data-sk="(rôzne)" data-en="(various)">(rôzne)</span> · Adrián Vavro <span style="opacity:.55" data-sk="(rôzne)" data-en="(various)">(rôzne)</span> · <a href="https://www.facebook.com/profile.php?id=100063574472786" target="_blank" rel="noopener" style="color:var(--red);text-decoration:none;border-bottom:1px solid rgba(232,65,46,.4)">Zuzana Leitmanová</a> <span style="opacity:.55" data-sk="(rôzne)" data-en="(various)">(rôzne)</span> · <a href="https://www.facebook.com/lukasruferfoto" target="_blank" rel="noopener" style="color:var(--red);text-decoration:none;border-bottom:1px solid rgba(232,65,46,.4)">Lukáš Rufer</a> <span style="opacity:.55">(Orlická Brána 2025)</span> · <a href="https://www.facebook.com/juraj.bednarik1" target="_blank" rel="noopener" style="color:var(--red);text-decoration:none;border-bottom:1px solid rgba(232,65,46,.4)">Juraj Bednárik</a> <span style="opacity:.55">(Orava Alternative 2025)</span><span data-sk=" a ďalší." data-en=" and others."> a ďalší.</span></p>
   </div>
   <div class="gm">
     <div class="gi" onclick="openLB(this)"><img src="img/new_21.jpg" alt="" loading="lazy"></div>
@@ -784,34 +806,53 @@ function playYT(id){
 }
 
 // Audio Player
-// To add songs: add objects to this array with {title, src} where src is the MP3 file path
-// Example: {title: 'Paralelné svety', src: 'audio/paralelne_svety.mp3'}
+// Tracks listed in Spotify order. Set `src` once the audio file is in /audio.
+// Tracks without `src` show in the list as "coming soon" and are skipped on play.
 const playlist = [
-  // {title: 'Paralelné svety', src: 'audio/paralelne_svety.mp3'},
-  // {title: 'Poďme domov', src: 'audio/podme_domov.mp3'},
-  // Add more tracks here...
+  {title: 'Paralelné svety',     src: 'audio/paralelne_svety.mp3'},
+  {title: 'Cely',                src: 'audio/cely.mp3'},
+  {title: 'Na kopci za mestom',  src: 'audio/na_kopci_za_mestom.mp3'},
+  {title: 'Poďme domov',         src: 'audio/podme_domov.mp3'},
+  {title: 'Čierny vták',         src: 'audio/cierny_vtak.mp3'},
+  {title: 'Kruh',                src: 'audio/kruh.mp3'},
+  {title: 'Za zavretými dverami', src: 'audio/za_zavretymi_dverami.mp3'},
+  {title: 'Nad ránom',           src: 'audio/nad_ranom.mp3'},
+  {title: 'Málo stačí',          src: 'audio/malo_staci.mp3'},
 ];
 
 let apIdx=0, audio=new Audio();
 function apInit(){
   if(!playlist.length)return;
-  document.getElementById('ap-list').innerHTML=playlist.map((t,i)=>
-    '<div class="ap-track'+(i===0?' active':'')+'" onclick="apPlay('+i+')"><span class="ap-num">'+(i+1)+'</span><div class="ap-info"><div class="ap-title">'+t.title+'</div></div></div>'
-  ).join('');
-  apLoad(0);
+  document.getElementById('ap-list').innerHTML=playlist.map((t,i)=>{
+    const has=!!t.src;
+    return '<div class="ap-track'+(has?'':' soon')+'" onclick="'+(has?'apPlay('+i+')':'')+'"><span class="ap-num">'+(i+1)+'</span><div class="ap-info"><div class="ap-title">'+t.title+'</div></div>'+(has?'':'<span class="ap-soon" data-sk="čoskoro" data-en="soon">čoskoro</span>')+'</div>';
+  }).join('');
+  // Load first available track
+  const first=playlist.findIndex(t=>t.src);
+  if(first>=0)apLoad(first);
 }
 function apLoad(i){
+  if(!playlist[i].src)return;
   apIdx=i;audio.src=playlist[i].src;
   document.getElementById('ap-now').textContent=playlist[i].title;
   document.querySelectorAll('.ap-track').forEach((t,j)=>t.classList.toggle('active',j===i));
 }
-function apPlay(i){apLoad(i);audio.play();document.getElementById('ap-icon').innerHTML='<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'}
-function apToggle(){if(!playlist.length)return;if(audio.paused){audio.play();document.getElementById('ap-icon').innerHTML='<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'}else{audio.pause();document.getElementById('ap-icon').innerHTML='<polygon points="5,3 19,12 5,21"/>'}}
-function apNext(){if(!playlist.length)return;apPlay((apIdx+1)%playlist.length)}
-function apPrev(){if(!playlist.length)return;apPlay((apIdx-1+playlist.length)%playlist.length)}
-function apSeek(e){if(!audio.duration)return;const r=e.target.getBoundingClientRect();audio.currentTime=(e.clientX-r.left)/r.width*audio.duration}
+function apPlay(i){if(!playlist[i].src)return;apLoad(i);audio.play();document.getElementById('ap-icon').innerHTML='<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'}
+function apToggle(){if(!playlist.length||!audio.src)return;if(audio.paused){audio.play();document.getElementById('ap-icon').innerHTML='<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'}else{audio.pause();document.getElementById('ap-icon').innerHTML='<polygon points="5,3 19,12 5,21"/>'}}
+function apNextAvailable(d){
+  // d=+1 next, d=-1 prev. Loops around, skips tracks without src.
+  let n=playlist.length, i=apIdx;
+  for(let k=0;k<n;k++){i=(i+d+n)%n;if(playlist[i].src)return i;}
+  return apIdx;
+}
+function apNext(){const i=apNextAvailable(1);if(i!==apIdx)apPlay(i);}
+function apPrev(){const i=apNextAvailable(-1);if(i!==apIdx)apPlay(i);}
+function apSeek(e){if(!audio.duration)return;const r=e.currentTarget.getBoundingClientRect();audio.currentTime=(e.clientX-r.left)/r.width*audio.duration}
+function apExpand(){document.querySelector('.audio-player').classList.add('expanded');document.body.style.overflow='hidden';}
+function apCollapse(){document.querySelector('.audio-player').classList.remove('expanded');document.body.style.overflow='';}
 audio.addEventListener('timeupdate',()=>{if(!audio.duration)return;const p=audio.currentTime/audio.duration*100;document.getElementById('ap-fill').style.width=p+'%';document.getElementById('ap-cur').textContent=fmt(audio.currentTime);document.getElementById('ap-total').textContent=fmt(audio.duration)});
 audio.addEventListener('ended',apNext);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.audio-player').classList.contains('expanded'))apCollapse();});
 function fmt(s){s=Math.floor(s);return Math.floor(s/60)+':'+(s%60<10?'0':'')+s%60}
 apInit();
 </script>
