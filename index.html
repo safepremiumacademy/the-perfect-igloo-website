@@ -17,12 +17,12 @@ a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.8rem 3vw;display:flex;align-items:center;justify-content:space-between;transition:.4s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.6rem 2.5vw;display:flex;align-items:center;justify-content:space-between;transition:.4s;gap:1.5rem}
 nav.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(20px)}
-.nav-logo img{height:110px;transition:height .4s}
-nav.scrolled .nav-logo img{height:60px}
-.nav-links{display:flex;gap:1.8rem;align-items:center}
-.nav-links a{font-weight:500;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;opacity:.55;transition:.3s}
+.nav-logo img{height:80px;transition:height .4s}
+nav.scrolled .nav-logo img{height:54px}
+.nav-links{display:flex;gap:1.1rem;align-items:center;flex-wrap:nowrap}
+.nav-links a{font-weight:500;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;opacity:.55;transition:.3s;white-space:nowrap}
 .nav-links a:hover{opacity:1}
 .lang-btn{background:0 0;border:1px solid rgba(255,255,255,.25);color:var(--white);padding:.25rem .65rem;border-radius:20px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;transition:.3s}
 .lang-btn:hover{border-color:var(--red);background:rgba(232,65,46,.12)}
@@ -34,9 +34,9 @@ nav.scrolled .nav-logo img{height:60px}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.65) contrast(1.05)}
 .hero-over{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.15) 0%,rgba(10,10,10,.3) 40%,rgba(10,10,10,.85) 80%,var(--black) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 5vw 8vh 8vw;max-width:1100px}
+.hero-content{position:relative;z-index:2;padding:9rem 5vw 8vh 8vw;max-width:1100px}
 .hero-ey{font-size:.9rem;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem;opacity:0;animation:fu .8s .3s forwards}
-#hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4.5rem,13vw,11rem);line-height:.82;letter-spacing:-.02em;margin-bottom:1.5rem;opacity:0;animation:fu .8s .5s forwards}
+#hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,11vw,9.5rem);line-height:.82;letter-spacing:-.02em;margin-bottom:1.5rem;opacity:0;animation:fu .8s .5s forwards}
 #hero h1 .accent{color:var(--red);border:none;padding:0;background:none;display:inline}
 .hero-sub{font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:300;letter-spacing:.02em;opacity:0;max-width:580px;margin-bottom:2.5rem;animation:fu .8s .7s forwards;line-height:1.65}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fu .8s .9s forwards}
@@ -132,14 +132,14 @@ section{padding:7rem 5vw 7rem 8vw}
 
 /* MEMBERS */
 #members{overflow:hidden}
-.ms{display:flex;gap:1rem;margin-top:3.5rem;scrollbar-width:none;padding-bottom:1rem;justify-content:center;flex-wrap:wrap}
+.ms{display:flex;gap:.9rem;margin-top:3.5rem;scrollbar-width:none;padding-bottom:1rem;justify-content:center;flex-wrap:wrap}
 .ms::-webkit-scrollbar{display:none}
-.mc{flex:0 0 240px;position:relative;overflow:hidden;border-radius:12px;background:var(--black)}
-.mc .mi{width:240px;height:340px;object-fit:cover;object-position:center 20%;filter:grayscale(.3);transition:.5s;display:block}
+.mc{flex:0 0 200px;position:relative;overflow:hidden;border-radius:12px;background:var(--black)}
+.mc .mi{width:200px;height:285px;object-fit:cover;object-position:center 20%;filter:grayscale(.3);transition:.5s;display:block}
 .mc:hover .mi{filter:grayscale(0);transform:scale(1.04)}
-.mn{position:absolute;bottom:0;left:0;right:0;padding:1.3rem;background:linear-gradient(transparent,rgba(10,10,10,.95));border-radius:0 0 12px 12px}
-.mc h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem}
-.mc p{font-size:.9rem;opacity:.55;font-weight:300}
+.mn{position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(transparent,rgba(10,10,10,.95));border-radius:0 0 12px 12px}
+.mc h3{font-family:'Bebas Neue',sans-serif;font-size:1.4rem}
+.mc p{font-size:.82rem;opacity:.55;font-weight:300}
 .hw{margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,.06)}
 .hw>h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;margin-bottom:2rem}
 
@@ -373,10 +373,10 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
   <div class="sl rv" data-sk="Videoklipy" data-en="Music Videos">VIDEOKLIPY</div>
   <div class="st rv" data-sk="Pozri si naše klipy" data-en="Watch our videos">Pozri si naše klipy</div>
   <div class="vg">
-    <div><div class="vc rv" onclick="playYT(this,'DNxBh3YPfcE')"><img src="https://img.youtube.com/vi/DNxBh3YPfcE/maxresdefault.jpg" alt="Paralelné svety"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vb">🏆 Ocenený</div><h3>Paralelné svety</h3><p>EMVA Winner 2025</p></div></div><a class="yt-link" href="https://youtu.be/DNxBh3YPfcE" target="_blank">Otvoriť na YouTube ↗</a></div>
+    <div><div id="paralelne-svety" class="vc rv" onclick="playYT(this,'DNxBh3YPfcE')"><img src="https://img.youtube.com/vi/DNxBh3YPfcE/maxresdefault.jpg" alt="Paralelné svety"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vb">🏆 Ocenený</div><h3>Paralelné svety</h3><p>EMVA Winner 2025</p></div></div><a class="yt-link" href="https://youtu.be/DNxBh3YPfcE" target="_blank">Otvoriť na YouTube ↗</a></div>
     <div><div class="vc rv rv-d1" onclick="playYT(this,'PzDJz-xLQ3g')"><img src="https://img.youtube.com/vi/PzDJz-xLQ3g/maxresdefault.jpg" alt="Poďme domov"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Poďme domov</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/PzDJz-xLQ3g" target="_blank">Otvoriť na YouTube ↗</a></div>
     <div><div class="vc rv rv-d2" onclick="playYT(this,'oA31Ud_tLd8')"><img src="https://img.youtube.com/vi/oA31Ud_tLd8/maxresdefault.jpg" alt="Čierny vták"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Čierny vták</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/oA31Ud_tLd8" target="_blank">Otvoriť na YouTube ↗</a></div>
-    <div><div class="vc rv" onclick="playYT(this,'_frTiRWse2A')"><img src="img/Hviezda.webp" alt="Nad ránom"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Nad ránom</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/_frTiRWse2A" target="_blank">Otvoriť na YouTube ↗</a></div>
+    <div><div class="vc rv" onclick="playYT(this,'_frTiRWse2A')"><img src="img/nad_ranom_thumb.png" alt="Nad ránom"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Nad ránom</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/_frTiRWse2A" target="_blank">Otvoriť na YouTube ↗</a></div>
     <div><div class="vc rv rv-d1" onclick="playYT(this,'PtuZi9LbDmI')"><img src="https://img.youtube.com/vi/PtuZi9LbDmI/maxresdefault.jpg" alt="Cely"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Cely</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/PtuZi9LbDmI" target="_blank">Otvoriť na YouTube ↗</a></div>
   </div>
 </section>
@@ -391,7 +391,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
     <div><div class="vc rv rv-d2" onclick="playYT(this,'xwgEc75P5ls')"><img src="https://img.youtube.com/vi/xwgEc75P5ls/maxresdefault.jpg" alt="Vyhasnutá hviezda"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Vyhasnutá hviezda</h3></div></div><a class="yt-link" href="https://youtu.be/xwgEc75P5ls" target="_blank">Otvoriť na YouTube ↗</a></div>
     <div><div class="vc rv" onclick="playYT(this,'ZifK0Ncwrj4')"><img src="https://img.youtube.com/vi/ZifK0Ncwrj4/maxresdefault.jpg" alt="Leto"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Leto</h3></div></div><a class="yt-link" href="https://youtu.be/ZifK0Ncwrj4" target="_blank">Otvoriť na YouTube ↗</a></div>
     <div><div class="vc rv rv-d1" onclick="playYT(this,'fVwtrBbVfFs')"><img src="https://img.youtube.com/vi/fVwtrBbVfFs/maxresdefault.jpg" alt="Kruh"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Kruh</h3></div></div><a class="yt-link" href="https://youtu.be/fVwtrBbVfFs" target="_blank">Otvoriť na YouTube ↗</a></div>
-    <div><div class="vc rv rv-d2" onclick="playYT(this,'xoK1PAbb-PM')"><img src="https://img.youtube.com/vi/xoK1PAbb-PM/maxresdefault.jpg" alt="Za zavretými dverami"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Za zavretými dverami</h3></div></div><a class="yt-link" href="https://youtu.be/xoK1PAbb-PM" target="_blank">Otvoriť na YouTube ↗</a></div>
+    <div><div class="vc rv rv-d2" onclick="playYT(this,'xoK1PAbb-PM')"><img src="img/za_zavretymi_thumb.png" alt="Za zavretými dverami"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Za zavretými dverami</h3></div></div><a class="yt-link" href="https://youtu.be/xoK1PAbb-PM" target="_blank">Otvoriť na YouTube ↗</a></div>
   </div>
   <div class="qt" style="margin-top:2.5rem;max-width:800px">
     <p>„Oproti nahrávkam sú naživo obohatení o dychovú sekciu, čo pôsobí veľmi osviežujúco. Hrajú zmes energických aj melodických pesničiek. Po hudobnej aj organizačnej stránke odporúčam na festivaly a do klubov."</p>
@@ -466,27 +466,57 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
   <div class="sl rv" data-sk="Galéria" data-en="Gallery">GALÉRIA</div>
   <div class="st rv" data-sk="Momenty z pódia" data-en="Moments from stage">Momenty z pódia</div>
   <div class="gm">
+    <div class="gi" onclick="openLB(this)"><img src="img/new_09.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_21.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/ob_wide.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_27.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_01.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/Staromestske_slavnosti_2.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_19.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_24.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_06.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/ob_singer.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/gal_01.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_25.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_08.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/ob_full.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_22.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_13.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/Orlicka_brana.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_16.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_29.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/ob_horns.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/sai_1.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_15.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/gal_07.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_28.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_17.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/ob_guitar.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_10.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_30.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/Staromestske_slavnosti_3.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_20.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/ob_drums.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_31.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_14.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/Orlicka_brana_dychy.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_07.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_23.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/fb_01.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_18.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_32.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/ob_keys.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_04.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/koller.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/sai_3.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_12.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_26.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/gal_11.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_11.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/fb_02.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_05.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/ob_sax.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_03.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/E34A0493.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/gal_12.jpg" alt="" loading="lazy"></div>
+    <div class="gi" onclick="openLB(this)"><img src="img/new_02.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/sai_4.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/gal_15.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/kzp_4.jpg" alt="" loading="lazy"></div>
@@ -512,6 +542,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
   <div class="st rv" data-sk="Kde nás nájdete" data-en="Where to find us">Kde nás nájdete</div>
   <div class="shl">
     <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--red);margin-bottom:1.5rem" data-sk="🔥 Najbližšie koncerty" data-en="🔥 Upcoming Shows">🔥 Najbližšie koncerty</h3>
+    <div class="sr"><div class="sd"><div class="dy">29</div><div class="mo">APR 26</div></div><div class="si"><h3 data-sk="Úsmevník — Slovenský rozhlas" data-en="Úsmevník — Slovak Radio">Úsmevník — Slovenský rozhlas</h3><p data-sk="Živé hranie v rádiu, SK" data-en="Live radio broadcast, SK">Živé hranie v rádiu, SK</p></div><span class="stag up" data-sk="Rádio" data-en="Radio">Rádio</span></div>
     <div class="sr"><div class="sd"><div class="dy">29</div><div class="mo">MÁJ 26</div></div><div class="si"><h3>MetroMusicClub</h3><p>Brno, CZ</p></div><span class="stag up">Upcoming</span></div>
     <div class="sr"><div class="sd"><div class="dy">30</div><div class="mo">MÁJ 26</div></div><div class="si"><h3>Malá Paříž Teplice</h3><p>Teplice, CZ</p></div><span class="stag up">Upcoming</span></div>
     <div class="sr"><div class="sd"><div class="dy">31</div><div class="mo">MÁJ 26</div></div><div class="si"><h3>Malá Paříž Děčín</h3><p>Děčín, CZ</p></div><span class="stag up">Upcoming</span></div>
@@ -581,7 +612,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
     <div class="pcta rv rv-d2">
       <h3 data-sk="Chcete nás na vašom evente?" data-en="Want us at your event?">Chcete nás na vašom evente?</h3>
       <p data-sk="Hrajeme na festivaloch, v kluboch, na mestských slávnostiach aj privátnych akciách. Napíšte nám a dohodneme sa." data-en="We play festivals, clubs, city celebrations, and private events. Get in touch and let's make it happen.">Hrajeme na festivaloch, v kluboch, na mestských slávnostiach aj privátnych akciách. Napíšte nám a dohodneme sa.</p>
-      <div class="cl"><span class="ci">✉</span><a href="/cdn-cgi/l/email-protection#03776b662d736671656660772d6a646f6c6c43646e626a6f2d606c6e"><span class="__cf_email__" data-cfemail="17637f723967726571727463397e707b787857707a767e7b3974787a">[email&#160;protected]</span></a></div>
+      <div class="cl"><span class="ci">✉</span><a href="mailto:the.perfect.igloo@gmail.com"><!--email_off-->the.perfect.igloo@gmail.com<!--/email_off--></a></div>
       <div class="cl"><span class="ci">📞</span><a href="tel:+421905477081">+421 905 477 081</a></div>
       <div class="cl"><span class="ci">📞</span><a href="tel:+421903455250">+421 903 455 250</a></div>
       <div style="margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap">
@@ -602,7 +633,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
     <div style="flex:0 0 280px;text-align:left">
       <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;margin-bottom:.5rem" data-sk="Tričká The Perfect Igloo" data-en="The Perfect Igloo T-Shirts">Tričká The Perfect Igloo</h3>
       <p style="font-size:1.05rem;opacity:.6;line-height:1.6;margin-bottom:1.5rem" data-sk="Čierne aj biele s logom kapely. Napíš nám a objednaj si." data-en="Black and white with band logo. Write us to order.">Čierne aj biele s logom kapely. Napíš nám a objednaj si.</p>
-      <a href="/cdn-cgi/l/email-protection#f0849895de80958296959384de99979c9f9fb0979d91999cde939f9d" class="btn btn-red" data-sk="Objednať" data-en="Order">Objednať</a>
+      <!--email_off--><a href="mailto:the.perfect.igloo@gmail.com" class="btn btn-red" data-sk="Objednať" data-en="Order">Objednať</a><!--/email_off-->
     </div>
   </div>
 </section>
@@ -624,7 +655,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
   <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1)">
     <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;margin-bottom:1rem" data-sk="Kontakt" data-en="Contact">Kontakt</h3>
     <div style="font-size:1.1rem;line-height:2">
-      <div>✉ <a href="/cdn-cgi/l/email-protection#f98d919cd7899c8b9f9c9a8dd7909e959696b99e94989095d79a9694" style="opacity:.7"><span class="__cf_email__" data-cfemail="6b1f030e451b0e190d0e081f45020c0704042b0c060a020745080406">[email&#160;protected]</span></a></div>
+      <div>✉ <a href="mailto:the.perfect.igloo@gmail.com" style="opacity:.7"><!--email_off-->the.perfect.igloo@gmail.com<!--/email_off--></a></div>
       <div>📞 <a href="tel:+421905477081" style="opacity:.7">+421 905 477 081</a></div>
       <div>📞 <a href="tel:+421903455250" style="opacity:.7">+421 903 455 250</a></div>
     </div>
@@ -675,11 +706,11 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
 <!-- FOOTER -->
 <footer>
   
-  <div class="fk"><a href="/cdn-cgi/l/email-protection#a5d1cdc08bd5c0d7c3c0c6d18bccc2c9cacae5c2c8c4ccc98bc6cac8">Kontakt</a><a href="https://drive.google.com/drive/u/1/folders/1udiEVM32NjYNGwwd0cidkbJ79CZSdgz2" target="_blank">Materiály</a><a href="#promoters">Booking</a></div>
+  <div class="fk"><!--email_off--><a href="mailto:the.perfect.igloo@gmail.com">Kontakt</a><!--/email_off--><a href="https://drive.google.com/drive/u/1/folders/1udiEVM32NjYNGwwd0cidkbJ79CZSdgz2" target="_blank">Materiály</a><a href="#promoters">Booking</a></div>
   <div class="fc">© 2025 The Perfect Igloo</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const nav=document.getElementById('mainNav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
 document.querySelectorAll('.nav-links a:not(.lang-btn)').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('mob')));
