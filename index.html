@@ -154,6 +154,13 @@ section{padding:7rem 5vw 7rem 8vw}
 #lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:6px}
 #lightbox .lbc{position:absolute;top:2rem;right:2rem;font-size:2rem;color:#fff;cursor:pointer;opacity:.6;transition:.3s}
 #lightbox .lbc:hover{opacity:1}
+#vlightbox{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center}
+#vlightbox.open{display:flex}
+#vlightbox .vlb-frame{width:min(92vw,1400px);aspect-ratio:16/9;max-height:88vh;border-radius:8px;overflow:hidden;background:#000;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+#vlightbox iframe{width:100%;height:100%;border:0;display:block}
+#vlightbox .lbc{position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:#fff;cursor:pointer;opacity:.6;transition:.3s;z-index:2}
+#vlightbox .lbc:hover{opacity:1}
+#paralelne-svety{scroll-margin-top:120px}
 
 /* SHOWS */
 .shl{margin-top:3rem;max-width:880px}
@@ -527,6 +534,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
   </div>
 </section>
 <div id="lightbox" onclick="closeLB()"><span class="lbc">✕</span><img id="lb-img" src="" alt=""></div>
+<div id="vlightbox" onclick="if(event.target===this)closeVLB()"><span class="lbc" onclick="closeVLB()">✕</span><div class="vlb-frame"><iframe id="vlb-frame" src="" allow="autoplay;encrypted-media" allowfullscreen></iframe></div></div>
 
 <!-- FLOATING PHOTOS 4 -->
 <div class="fp-zone" style="height:380px">
@@ -729,32 +737,18 @@ document.querySelectorAll('.fp-img').forEach(el=>fpObs.observe(el));
 // Lightbox
 function openLB(el){document.getElementById('lb-img').src=el.querySelector('img').src;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden'}
 function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+function closeVLB(){const f=document.getElementById('vlb-frame');f.src='';document.getElementById('vlightbox').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLB();closeVLB();}});
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})}));
 
-// YouTube lazy embed - plays video inline on click
-// If embedding is blocked, opens on YouTube instead
+// YouTube video player - opens in lightbox modal (mirrors photo lightbox UX)
 function playYT(el,id){
-  const iframe=document.createElement('iframe');
-  iframe.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
-  iframe.allow='autoplay;encrypted-media';
-  iframe.allowFullscreen=true;
-  iframe.style.cssText='width:100%;height:100%;border:none;position:absolute;inset:0;z-index:10';
-  iframe.onerror=function(){window.open('https://youtu.be/'+id,'_blank')};
-  el.innerHTML='';
-  el.appendChild(iframe);
-  el.style.cursor='default';
-  el.onclick=null;
-  // Fallback: if iframe fails to load after 3s, show retry option
-  setTimeout(()=>{
-    try{
-      if(!iframe.contentWindow)throw 0;
-    }catch(e){
-      el.innerHTML='<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#181818;z-index:11"><p style="margin-bottom:1rem;opacity:.6">Video sa nepodarilo načítať</p><a href="https://youtu.be/'+id+'" target="_blank" class="btn btn-red" style="font-size:.85rem">Otvoriť na YouTube ↗</a></div>';
-    }
-  },3000);
+  const f=document.getElementById('vlb-frame');
+  f.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
+  document.getElementById('vlightbox').classList.add('open');
+  document.body.style.overflow='hidden';
 }
 
 // Audio Player
