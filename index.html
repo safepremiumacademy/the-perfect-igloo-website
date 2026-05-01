@@ -43,6 +43,18 @@ nav.scrolled .nav-logo img{height:54px}
 @keyframes fu{to{opacity:1;transform:translateY(0)}}
 .hero-ey,.hero-sub,.hero-ctas,#hero h1{transform:translateY(30px)}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:1rem 2.2rem;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:600;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;transition:.3s;cursor:pointer;border:none}
+.show-more-wrap{text-align:center;margin-top:2rem}
+.show-more{background:transparent;color:var(--cream);border:1.5px solid rgba(255,255,255,.25);padding:.85rem 2rem;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.18em;border-radius:50px;cursor:pointer;transition:.3s;text-transform:uppercase}
+.show-more:hover{border-color:var(--red);color:var(--red);background:rgba(232,65,46,.08)}
+.show-more .arrow{display:inline-block;margin-left:.6rem;transition:transform .3s}
+.show-more.open .arrow{transform:rotate(180deg)}
+.show-more .less-text{display:none}
+.show-more.open .more-text{display:none}
+.show-more.open .less-text{display:inline}
+.expandable{display:none}
+.expandable.open{display:contents}
+.gi-hidden{display:none}
+.gm.expanded .gi-hidden{display:block}
 .btn:hover{transform:translateY(-2px)}
 .btn-red{background:var(--red);color:var(--white)}
 .btn-red:hover{box-shadow:0 8px 30px rgba(232,65,46,.45)}
@@ -59,7 +71,7 @@ nav.scrolled .nav-logo img{height:54px}
 @keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* SECTIONS */
-section{padding:7rem 5vw 7rem 8vw}
+section{padding:4.5rem 5vw 4.5rem 8vw}
 .sl{font-size:.85rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem}
 .st{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,5.5rem);line-height:.92;margin-bottom:2.5rem}
 .sx{font-weight:300;font-size:1.2rem;line-height:1.8;opacity:.78;max-width:720px}
@@ -272,7 +284,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
 
 /* RESPONSIVE */
 @media(max-width:1024px){.gm{columns:3}#about .aw,.pg{grid-template-columns:1fr}.lg{grid-template-columns:1fr}.lg .vc:first-child{grid-column:span 1}.fp-img{width:230px!important;height:170px!important}}
-@media(max-width:900px){section{padding:4.5rem 1.5rem}.nav-links{display:none!important}.hamburger{display:flex;position:relative;z-index:201}nav.mob{background:transparent}nav.mob .nav-links{display:flex!important;flex-direction:column;position:fixed;inset:0;width:100vw;height:100vh;background:#0a0a0a;background:rgba(10,10,10,.99);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);align-items:center;justify-content:center;gap:2rem;z-index:200;padding:5rem 1.5rem 2rem}nav.mob .nav-links a{font-size:1.1rem}.gm{columns:2}.vg{grid-template-columns:1fr}.sr{grid-template-columns:75px 1fr;gap:1rem}.sr .stag{grid-column:2}.ag{grid-template-columns:1fr}.mc{flex:0 0 160px}.mc .mi{width:160px;height:230px}.float-photo img{width:120px}.kzp-grid{grid-template-columns:1fr!important;gap:1.8rem!important}}
+@media(max-width:900px){section{padding:3rem 1.5rem}.nav-links{display:none!important}.hamburger{display:flex;position:relative;z-index:201}nav.mob{background:transparent}nav.mob .nav-links{display:flex!important;flex-direction:column;position:fixed;inset:0;width:100vw;height:100vh;background:#0a0a0a;background:rgba(10,10,10,.99);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);align-items:center;justify-content:center;gap:2rem;z-index:200;padding:5rem 1.5rem 2rem}nav.mob .nav-links a{font-size:1.1rem}.gm{columns:2}.vg{grid-template-columns:1fr}.sr{grid-template-columns:75px 1fr;gap:1rem}.sr .stag{grid-column:2}.ag{grid-template-columns:1fr}.mc{flex:0 0 160px}.mc .mi{width:160px;height:230px}.float-photo img{width:120px}.kzp-grid{grid-template-columns:1fr!important;gap:1.8rem!important}}
 @media(max-width:480px){
   .gm{columns:2;column-gap:.4rem}
   .gi{margin-bottom:.4rem}
@@ -308,7 +320,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
 @media(max-width:360px){
   #hero h1{font-size:3rem}
   .hero-content{padding:6.5rem 1.2rem 5vh 1.2rem}
-  section{padding:3.5rem 1.2rem!important}
+  section{padding:2.5rem 1.2rem!important}
   .fp-img img{width:120px!important;height:90px!important}
   .ap-header{padding:1rem}
   .ap-controls{padding:.8rem 1rem}
@@ -454,10 +466,15 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
   </div>
   <div class="vg">
     <div><div id="paralelne-svety" class="vc rv" onclick="playYT('DNxBh3YPfcE')"><img src="https://img.youtube.com/vi/DNxBh3YPfcE/maxresdefault.jpg" alt="Paralelné svety"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vb">🏆 Ocenený</div><h3>Paralelné svety</h3><p>EMVA Winner 2025</p></div></div><a class="yt-link" href="https://youtu.be/DNxBh3YPfcE" target="_blank">Otvoriť na YouTube ↗</a></div>
-    <div><div class="vc rv rv-d1" onclick="playYT('PzDJz-xLQ3g')"><img src="https://img.youtube.com/vi/PzDJz-xLQ3g/maxresdefault.jpg" alt="Poďme domov"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Poďme domov</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/PzDJz-xLQ3g" target="_blank">Otvoriť na YouTube ↗</a></div>
-    <div><div class="vc rv rv-d2" onclick="playYT('oA31Ud_tLd8')"><img src="https://img.youtube.com/vi/oA31Ud_tLd8/maxresdefault.jpg" alt="Čierny vták"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Čierny vták</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/oA31Ud_tLd8" target="_blank">Otvoriť na YouTube ↗</a></div>
-    <div><div class="vc rv" onclick="playYT('_frTiRWse2A')"><img src="img/nad_ranom_thumb.png" alt="Nad ránom"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Nad ránom</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/_frTiRWse2A" target="_blank">Otvoriť na YouTube ↗</a></div>
-    <div><div class="vc rv rv-d1" onclick="playYT('PtuZi9LbDmI')"><img src="https://img.youtube.com/vi/PtuZi9LbDmI/maxresdefault.jpg" alt="Cely"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Cely</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/PtuZi9LbDmI" target="_blank">Otvoriť na YouTube ↗</a></div>
+    <div><div class="vc rv rv-d1" onclick="playYT('oA31Ud_tLd8')"><img src="https://img.youtube.com/vi/oA31Ud_tLd8/maxresdefault.jpg" alt="Čierny vták"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Čierny vták</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/oA31Ud_tLd8" target="_blank">Otvoriť na YouTube ↗</a></div>
+    <div><div class="vc rv rv-d2" onclick="playYT('PtuZi9LbDmI')"><img src="https://img.youtube.com/vi/PtuZi9LbDmI/maxresdefault.jpg" alt="Cely"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Cely</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/PtuZi9LbDmI" target="_blank">Otvoriť na YouTube ↗</a></div>
+    <div class="expandable" id="videos-more">
+      <div><div class="vc rv" onclick="playYT('_frTiRWse2A')"><img src="img/nad_ranom_thumb.png" alt="Nad ránom"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Nad ránom</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/_frTiRWse2A" target="_blank">Otvoriť na YouTube ↗</a></div>
+      <div><div class="vc rv rv-d1" onclick="playYT('PzDJz-xLQ3g')"><img src="https://img.youtube.com/vi/PzDJz-xLQ3g/maxresdefault.jpg" alt="Poďme domov"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Poďme domov</h3><p>Oficiálny videoklip</p></div></div><a class="yt-link" href="https://youtu.be/PzDJz-xLQ3g" target="_blank">Otvoriť na YouTube ↗</a></div>
+    </div>
+  </div>
+  <div class="show-more-wrap">
+    <button id="videos-btn" class="show-more" onclick="toggleMore('videos-btn','videos-more')"><span class="more-text" data-sk="Zobraziť viac videí" data-en="Show more videos">Zobraziť viac videí</span><span class="less-text" data-sk="Zobraziť menej" data-en="Show less">Zobraziť menej</span><span class="arrow">▾</span></button>
   </div>
 </section>
 
@@ -467,11 +484,16 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
   <div class="st rv" data-sk="Energia na pódiu" data-en="Energy on stage">Energia na pódiu</div>
   <div class="lg">
     <div><div class="vc rv" onclick="playYT('BD-ZnQyRHzA')"><img src="https://img.youtube.com/vi/BD-ZnQyRHzA/maxresdefault.jpg" alt="Staromestské slávnosti"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><div class="vb" data-sk="Celý koncert" data-en="Full Concert">Celý koncert</div><h3>Staromestské slávnosti 2025</h3></div></div><a class="yt-link" href="https://youtu.be/BD-ZnQyRHzA" target="_blank">Otvoriť na YouTube ↗</a></div>
-    <div><div class="vc rv rv-d1" onclick="playYT('rhJaUAkPLIo')"><img src="https://img.youtube.com/vi/rhJaUAkPLIo/maxresdefault.jpg" alt="Na kopci za mestom"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Na kopci za mestom</h3><p>KZP 2025</p></div></div><a class="yt-link" href="https://youtu.be/rhJaUAkPLIo" target="_blank">Otvoriť na YouTube ↗</a></div>
-    <div><div class="vc rv rv-d2" onclick="playYT('xwgEc75P5ls')"><img src="https://img.youtube.com/vi/xwgEc75P5ls/maxresdefault.jpg" alt="Vyhasnutá hviezda"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Vyhasnutá hviezda</h3></div></div><a class="yt-link" href="https://youtu.be/xwgEc75P5ls" target="_blank">Otvoriť na YouTube ↗</a></div>
-    <div><div class="vc rv" onclick="playYT('ZifK0Ncwrj4')"><img src="https://img.youtube.com/vi/ZifK0Ncwrj4/maxresdefault.jpg" alt="Leto"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Leto</h3></div></div><a class="yt-link" href="https://youtu.be/ZifK0Ncwrj4" target="_blank">Otvoriť na YouTube ↗</a></div>
-    <div><div class="vc rv rv-d1" onclick="playYT('fVwtrBbVfFs')"><img src="https://img.youtube.com/vi/fVwtrBbVfFs/maxresdefault.jpg" alt="Kruh"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Kruh</h3></div></div><a class="yt-link" href="https://youtu.be/fVwtrBbVfFs" target="_blank">Otvoriť na YouTube ↗</a></div>
+    <div><div class="vc rv rv-d1" onclick="playYT('xwgEc75P5ls')"><img src="https://img.youtube.com/vi/xwgEc75P5ls/maxresdefault.jpg" alt="Vyhasnutá hviezda"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Vyhasnutá hviezda</h3></div></div><a class="yt-link" href="https://youtu.be/xwgEc75P5ls" target="_blank">Otvoriť na YouTube ↗</a></div>
     <div><div class="vc rv rv-d2" onclick="playYT('xoK1PAbb-PM')"><img src="img/za_zavretymi_thumb.png" alt="Za zavretými dverami"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Za zavretými dverami</h3></div></div><a class="yt-link" href="https://youtu.be/xoK1PAbb-PM" target="_blank">Otvoriť na YouTube ↗</a></div>
+    <div class="expandable" id="live-more">
+      <div><div class="vc rv" onclick="playYT('rhJaUAkPLIo')"><img src="https://img.youtube.com/vi/rhJaUAkPLIo/maxresdefault.jpg" alt="Na kopci za mestom"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Na kopci za mestom</h3><p>KZP 2025</p></div></div><a class="yt-link" href="https://youtu.be/rhJaUAkPLIo" target="_blank">Otvoriť na YouTube ↗</a></div>
+      <div><div class="vc rv rv-d1" onclick="playYT('ZifK0Ncwrj4')"><img src="https://img.youtube.com/vi/ZifK0Ncwrj4/maxresdefault.jpg" alt="Leto"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Leto</h3></div></div><a class="yt-link" href="https://youtu.be/ZifK0Ncwrj4" target="_blank">Otvoriť na YouTube ↗</a></div>
+      <div><div class="vc rv rv-d2" onclick="playYT('fVwtrBbVfFs')"><img src="https://img.youtube.com/vi/fVwtrBbVfFs/maxresdefault.jpg" alt="Kruh"><div class="vo"><div class="vp"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div><h3>Kruh</h3></div></div><a class="yt-link" href="https://youtu.be/fVwtrBbVfFs" target="_blank">Otvoriť na YouTube ↗</a></div>
+    </div>
+  </div>
+  <div class="show-more-wrap">
+    <button id="live-btn" class="show-more" onclick="toggleMore('live-btn','live-more')"><span class="more-text" data-sk="Zobraziť viac záznamov" data-en="Show more recordings">Zobraziť viac záznamov</span><span class="less-text" data-sk="Zobraziť menej" data-en="Show less">Zobraziť menej</span><span class="arrow">▾</span></button>
   </div>
   <div class="qt" style="margin-top:2.5rem;max-width:800px">
     <p>„Oproti nahrávkam sú naživo obohatení o dychovú sekciu, čo pôsobí veľmi osviežujúco. Hrajú zmes energických aj melodických pesničiek. Po hudobnej aj organizačnej stránke odporúčam na festivaly a do klubov."</p>
@@ -576,41 +598,44 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
     <div class="gi" onclick="openLB(this)"><img src="img/new_28.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/new_17.jpg" alt="" loading="lazy"></div>
     <div class="gi" onclick="openLB(this)"><img src="img/ob_guitar.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_10.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_30.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_09.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/Staromestske_slavnosti_3.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_20.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/ob_drums.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_31.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_14.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/Orlicka_brana_dychy.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_07.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_23.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/fb_01.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_18.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_32.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/ob_keys.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_04.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/koller.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/sai_3.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_12.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_26.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/gal_11.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_11.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/fb_02.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_05.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/ob_sax.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_03.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/E34A0493.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/new_02.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/sai_4.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/gal_15.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/kzp_4.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/gal_23.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/gal_22.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/gal_21.jpg" alt="" loading="lazy"></div>
-    <div class="gi" onclick="openLB(this)"><img src="img/Orlicka_brana_Line_up.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_10.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_30.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_09.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/Staromestske_slavnosti_3.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_20.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/ob_drums.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_31.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_14.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/Orlicka_brana_dychy.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_07.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_23.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/fb_01.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_18.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_32.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/ob_keys.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_04.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/koller.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/sai_3.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_12.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_26.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/gal_11.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_11.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/fb_02.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_05.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/ob_sax.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_03.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/E34A0493.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/new_02.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/sai_4.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/gal_15.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/kzp_4.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/gal_23.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/gal_22.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/gal_21.jpg" alt="" loading="lazy"></div>
+    <div class="gi gi-hidden" onclick="openLB(this)"><img src="img/Orlicka_brana_Line_up.jpg" alt="" loading="lazy"></div>
+  </div>
+  <div class="show-more-wrap">
+    <button id="gallery-btn" class="show-more" onclick="toggleGallery()"><span class="more-text" data-sk="Zobraziť viac fotiek" data-en="Show more photos">Zobraziť viac fotiek</span><span class="less-text" data-sk="Zobraziť menej" data-en="Show less">Zobraziť menej</span><span class="arrow">▾</span></button>
   </div>
 </section>
 <div id="lightbox" onclick="closeLB()"><span class="lbc" onclick="event.stopPropagation();closeLB()">✕</span><span class="lbn lbp" onclick="event.stopPropagation();lbNav(-1)">‹</span><span class="lbn lbnx" onclick="event.stopPropagation();lbNav(1)">›</span><img id="lb-img" src="" alt="" onclick="event.stopPropagation()"></div>
@@ -634,6 +659,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
     <div class="sr"><div class="sd"><div class="dy">29</div><div class="mo">MÁJ 26</div></div><div class="si"><h3>MetroMusicClub</h3><p>Brno, CZ</p></div><span class="stag up">Upcoming</span></div>
     <div class="sr"><div class="sd"><div class="dy">30</div><div class="mo">MÁJ 26</div></div><div class="si"><h3>Malá Paříž Teplice</h3><p>Teplice, CZ</p></div><span class="stag up">Upcoming</span></div>
     <div class="sr"><div class="sd"><div class="dy">31</div><div class="mo">MÁJ 26</div></div><div class="si"><h3>Malá Paříž Děčín</h3><p>Děčín, CZ</p></div><span class="stag up">Upcoming</span></div>
+    <div class="sr"><div class="sd"><div class="dy">3</div><div class="mo">JÚL 26</div></div><div class="si"><h3 data-sk="Kúpele Nový Smokovec" data-en="Nový Smokovec Spa">Kúpele Nový Smokovec</h3><p data-sk="Vysoké Tatry, SK · 18:00" data-en="High Tatras, SK · 18:00">Vysoké Tatry, SK · 18:00</p></div><span class="stag up">Upcoming</span></div>
     <div class="sr"><div class="sd"><div class="dy">21</div><div class="mo">AUG 26</div></div><div class="si"><h3>Festival Skaly</h3><p>Žilina, SK</p></div><span class="stag up">Upcoming</span></div>
 
     <div class="pt" onclick="document.getElementById('pw').classList.toggle('v');this.textContent=document.getElementById('pw').classList.contains('v')?'▲ Skryť históriu':'▼ Zobraziť históriu koncertov'" data-sk="▼ Zobraziť históriu koncertov" data-en="▼ Show concert history">▼ Zobraziť históriu koncertov</div>
@@ -816,6 +842,18 @@ document.querySelectorAll('.fp-img').forEach(el=>fpObs.observe(el));
 
 // Email - open in new tab so the site stays loaded after the mail-app chooser
 function openMail(addr){window.open('mailto:'+addr,'_blank');return false;}
+
+// Show more / less toggle (simple class toggle, CSS handles text swap)
+function toggleMore(btnId, targetId){
+  const btn=document.getElementById(btnId), wrap=document.getElementById(targetId);
+  wrap.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function toggleGallery(){
+  const btn=document.getElementById('gallery-btn'), gm=document.querySelector('#gallery .gm');
+  gm.classList.toggle('expanded');
+  btn.classList.toggle('open');
+}
 
 // Lightbox
 let lbIdx=-1, lbItems=[];
