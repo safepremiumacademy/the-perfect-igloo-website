@@ -842,7 +842,7 @@ footer{padding:3.5rem 5vw 1.5rem;border-top:1px solid rgba(255,255,255,.05);disp
 <footer>
   
   <div class="fk"><!--email_off--><a href="mailto:the.perfect.igloo@gmail.com" onclick="return openMail('the.perfect.igloo@gmail.com')">Kontakt</a><!--/email_off--><a href="https://drive.google.com/drive/u/1/folders/1udiEVM32NjYNGwwd0cidkbJ79CZSdgz2" target="_blank">Materiály</a><a href="#promoters">Booking</a></div>
-  <div class="fc">© 2025 The Perfect Igloo</div>
+  <div class="fc">© 2025 The Perfect Igloo · <span data-sk="Stránka používa Vercel Analytics na anonymné meranie návštevnosti — bez cookies, bez osobných údajov." data-en="This site uses Vercel Analytics for anonymous traffic measurement — no cookies, no personal data.">Stránka používa Vercel Analytics na anonymné meranie návštevnosti — bez cookies, bez osobných údajov.</span></div>
 </footer>
 
 <script>
@@ -963,5 +963,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelec
 function fmt(s){s=Math.floor(s);return Math.floor(s/60)+':'+(s%60<10?'0':'')+s%60}
 apInit();
 </script>
+<!-- Vercel Web Analytics (privacy-preserving, cookieless) -->
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
