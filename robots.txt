@@ -1,0 +1,7 @@
+# The Perfect Igloo — robots.txt
+# Allow search engines to crawl all public content
+
+User-agent: *
+Allow: /
+
+Sitemap: https://theperfectigloo.com/sitemap.xml
